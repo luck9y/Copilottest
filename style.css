@@ -1,1 +1,14 @@
+body {
+  margin: 0;
+  background: #222;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+#game-container {
+  border: 4px solid #fff;
+  box-shadow: 0 0 20px #000;
+}
