@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Black Velvet – Classic Platformer Parody</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Pixel Character Script</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      background: #87CEEB;
+      image-rendering: pixelated;
+      border: 2px solid black;
+    }
+  </style>
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="gameCanvas" width="800" height="480"></canvas>
-  </div>
-
+  <canvas id="game" width="320" height="180"></canvas>
+  <script src="player.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
