@@ -9,8 +9,8 @@ class Player {
     this.speed = 60;
 
     this.walkTime = 0;
-    this.walkSpeed = 6; // animation speed
-    this.step = 0;      // 0 or 1
+    this.walkSpeed = 6;
+    this.step = 0;
     this.moving = false;
   }
 
@@ -28,7 +28,7 @@ class Player {
 
     if (this.moving) {
       this.walkTime += dt * this.walkSpeed;
-      this.step = Math.floor(this.walkTime) % 2; // 0 or 1
+      this.step = Math.floor(this.walkTime) % 2;
     } else {
       this.step = 0;
       this.walkTime = 0;
@@ -36,48 +36,39 @@ class Player {
   }
 
   draw(ctx) {
-    // BODY COLORS
     const skin = "#f2c29d";
     const shirt = "#000000";
     const jeans = "#2d4f9e";
     const shoes = "#333333";
     const hat = "#000000";
 
-    // HEAD
     ctx.fillStyle = skin;
     ctx.fillRect(this.x, this.y, 16, 8);
 
-    // HAT
     ctx.fillStyle = hat;
     ctx.fillRect(this.x, this.y, 16, 4);
 
-    // SHIRT
     ctx.fillStyle = shirt;
     ctx.fillRect(this.x, this.y + 8, 16, 10);
 
-    // ARMS (animated)
     ctx.fillStyle = skin;
     if (this.step === 0) {
-      // step 1
-      ctx.fillRect(this.x - 3, this.y + 10, 3, 8); // left arm back
-      ctx.fillRect(this.x + 16, this.y + 10, 3, 8); // right arm forward
+      ctx.fillRect(this.x - 3, this.y + 10, 3, 8);
+      ctx.fillRect(this.x + 16, this.y + 10, 3, 8);
     } else {
-      // step 2
-      ctx.fillRect(this.x - 3, this.y + 10, 3, 8); // left arm forward
-      ctx.fillRect(this.x + 16, this.y + 10, 3, 8); // right arm back
+      ctx.fillRect(this.x - 3, this.y + 10, 3, 8);
+      ctx.fillRect(this.x + 16, this.y + 10, 3, 8);
     }
 
-    // LEGS (animated)
     ctx.fillStyle = jeans;
     if (this.step === 0) {
-      ctx.fillRect(this.x, this.y + 18, 7, 14); // left leg forward
-      ctx.fillRect(this.x + 9, this.y + 18, 7, 14); // right leg back
+      ctx.fillRect(this.x, this.y + 18, 7, 14);
+      ctx.fillRect(this.x + 9, this.y + 18, 7, 14);
     } else {
-      ctx.fillRect(this.x, this.y + 18, 7, 14); // left leg back
-      ctx.fillRect(this.x + 9, this.y + 18, 7, 14); // right leg forward
+      ctx.fillRect(this.x, this.y + 18, 7, 14);
+      ctx.fillRect(this.x + 9, this.y + 18, 7, 14);
     }
 
-    // SHOES
     ctx.fillStyle = shoes;
     ctx.fillRect(this.x, this.y + 30, 7, 4);
     ctx.fillRect(this.x + 9, this.y + 30, 7, 4);
